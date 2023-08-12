@@ -29,7 +29,6 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [https://github.com/varisDogukan/black-belt](https://github.com/varisDogukan/black-belt)
 - Live Site URL: [https://black-belt-gold.vercel.app/](https://black-belt-gold.vercel.app/)
 
 ## My process

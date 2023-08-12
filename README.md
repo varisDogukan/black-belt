@@ -57,7 +57,6 @@ Users should be able to:
 - Bcryptjs
 - http-status-codes
 - express-async-errors
-- validator
 
 ## Author
 

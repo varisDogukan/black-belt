@@ -21,17 +21,16 @@ export default function Pirates() {
 
   const showTag = () => {
     if (pirateLoading) return <PirateLoader />;
-    if (pirates.length > 0) {
-      return (
-        <div className="max-container">
-          {pirates.map((item: IPirate) => (
-            <PiratesCard key={item._id} {...item} />
-          ))}
-        </div>
-      );
-    }
 
-    return <EmptyPirate />;
+    if (!pirateLoading && pirates.length === 0) return <EmptyPirate />;
+
+    return (
+      <div className="max-container">
+        {pirates.map((item: IPirate) => (
+          <PiratesCard key={item._id} {...item} />
+        ))}
+      </div>
+    );
   };
 
   return (

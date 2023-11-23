@@ -53,6 +53,9 @@ type GetAllPiratesAction =
   | {
       type: ActionTypes.GET_ALL_PIRATES_SUCCESS;
       payload: GetAllPiratesPayloadType;
+    }
+  | {
+      type: ActionTypes.GET_ALL_PIRATES_ERROR;
     };
 
 type DeletePirateAction =

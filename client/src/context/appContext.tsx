@@ -171,7 +171,9 @@ const AppProvider: React.FunctionComponent<{ children: ReactNode }> = ({
 
       dispatch({ type: ActionTypes.GET_ALL_PIRATES_SUCCESS, payload: data });
     } catch (error) {
-      console.log(error);
+      dispatch({
+        type: ActionTypes.GET_ALL_PIRATES_ERROR,
+      });
     }
   };
 

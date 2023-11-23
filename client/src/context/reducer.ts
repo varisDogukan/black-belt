@@ -95,7 +95,13 @@ const reducer = (state: State, action: Action): State => {
     case ActionTypes.GET_ALL_PIRATES_SUCCESS:
       return {
         ...state,
+        pirateLoading: false,
         pirates: action.payload.pirates,
+      };
+
+    case ActionTypes.GET_ALL_PIRATES_ERROR:
+      return {
+        ...state,
         pirateLoading: false,
       };
 

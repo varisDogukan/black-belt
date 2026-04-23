@@ -12,12 +12,11 @@ Working method:
 1. First analyze the task in the repository context
 2. Do not immediately make code changes unless the task is already very clear and low-risk
 3. Identify:
-
-- the goal of the task
-- likely affected files
-- risks
-- likely acceptance criteria
-- the smallest safe implementation plan
+   - the goal of the task
+   - likely affected files
+   - risks
+   - likely acceptance criteria
+   - the smallest safe implementation plan
 
 4. Prefer small, reviewable changes
 5. Do not perform unrelated refactors

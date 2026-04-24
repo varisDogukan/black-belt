@@ -31,6 +31,17 @@ Users should be able to:
 
 - Live Site URL: [https://black-belt-gold.vercel.app/](https://black-belt-gold.vercel.app/)
 
+### Local development
+
+The client was previously hardcoded to call the old Vercel API deployment. For local development, use `client/.env.local` or copy `client/.env.example`:
+
+- `VITE_API_URL=http://localhost:5000/api/v1`
+
+The server already reads its config from `server/.env`, so run the apps separately:
+
+- `cd server && npm run dev`
+- `cd client && npm run dev`
+
 ## My process
 
 ### Built with

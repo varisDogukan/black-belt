@@ -5,15 +5,16 @@ import axios, {
   AxiosInstance,
   AxiosResponse,
 } from 'axios';
-import { initialState } from './appContext';
+
+const apiBaseUrl = `${(import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1').replace(/\/+$/, '')}/`;
 
 const authFetch: AxiosInstance = axios.create({
-  baseURL: 'https://black-belt-api.vercel.app/api/v1/',
+  baseURL: apiBaseUrl,
 });
 
 authFetch.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const { token } = initialState;
+    const token = localStorage.getItem('token');
 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;

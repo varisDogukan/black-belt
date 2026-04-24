@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useAppContext } from 'src/context/appContext';
 import { PirateLoader, Title } from 'src/shared';
 import SinglePirate from './components/SinglePirate';
+import { PirateNotFound } from './components';
 import Wrapper from './styles/PirateDetail.styles';
 
 export default function PirateDetail() {
@@ -20,6 +21,8 @@ export default function PirateDetail() {
 
   const showTag = () => {
     if (pirateLoading) return <PirateLoader />;
+
+    if (!singlePirate) return <PirateNotFound />;
 
     return <SinglePirate />;
   };

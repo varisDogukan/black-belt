@@ -16,6 +16,7 @@ const Wrapper = styled.section`
       margin-bottom: 40px;
 
       .img-container {
+        width: 250px;
       }
 
       .quote {

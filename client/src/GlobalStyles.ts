@@ -62,6 +62,7 @@ img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
   object-fit: cover;
+  flex: 1
 }
 
 ul { list-style: none; }

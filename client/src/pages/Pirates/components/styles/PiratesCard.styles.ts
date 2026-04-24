@@ -37,6 +37,32 @@ const Wrapper = styled.article`
     }
   }
 
+  .confirm-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+
+    span {
+      font-size: var(--f-sm);
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .confirm-buttons {
+      display: flex;
+      gap: 20px;
+
+      button:first-child {
+        background-color: var(--red);
+      }
+
+      button:last-child {
+        background-color: var(--blue);
+      }
+    }
+  }
+
   @media ${mediaQuery.tablet} {
     display: flex;
 

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useAppContext } from 'src/context/appContext';
 import { Button } from 'src/shared';
 import Wrapper from './styles/PiratesCard.styles';
@@ -10,6 +11,7 @@ type PiratesCardProps = {
 
 export default function PiratesCard({ _id, image, name }: PiratesCardProps) {
   const { deletePirate } = useAppContext();
+  const [confirming, setConfirming] = useState(false);
 
   return (
     <Wrapper>
@@ -20,14 +22,32 @@ export default function PiratesCard({ _id, image, name }: PiratesCardProps) {
       <div className="content">
         <h4>{name}</h4>
 
-        <div className="button-container">
-          <Button title="View Pirate" url={`/pirates/${_id}`} />
-          <Button
-            title="Walk the Plank"
-            isNormalButton="true"
-            method={() => deletePirate(_id)}
-          />
-        </div>
+        {confirming ? (
+          <div className="confirm-container">
+            <span>Are you sure?</span>
+            <div className="confirm-buttons">
+              <Button
+                title="Yes"
+                isNormalButton="true"
+                method={() => deletePirate(_id)}
+              />
+              <Button
+                title="No"
+                isNormalButton="true"
+                method={() => setConfirming(false)}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="button-container">
+            <Button title="View Pirate" url={`/pirates/${_id}`} />
+            <Button
+              title="Walk the Plank"
+              isNormalButton="true"
+              method={() => setConfirming(true)}
+            />
+          </div>
+        )}
       </div>
     </Wrapper>
   );

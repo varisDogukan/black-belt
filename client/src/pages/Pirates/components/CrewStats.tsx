@@ -10,23 +10,23 @@ export default function CrewStats() {
   const pegLegCount = pirates.filter((p) => p.pegLeg).length;
 
   return (
-    <Wrapper>
-      <div className="inner">
+    <Wrapper aria-label="Crew statistics">
+      <dl className="inner">
         <div className="stat">
-          <strong>{pirates.length}</strong>
-          <span>Pirates</span>
+          <dt>Pirates</dt>
+          <dd>{pirates.length}</dd>
         </div>
 
         <div className="stat">
-          <strong>{totalChests}</strong>
-          <span>Total Chests</span>
+          <dt>Total Chests</dt>
+          <dd>{totalChests}</dd>
         </div>
 
         <div className="stat">
-          <strong>{pegLegCount}</strong>
-          <span>Peg Legs</span>
+          <dt>Peg Legs</dt>
+          <dd>{pegLegCount}</dd>
         </div>
-      </div>
+      </dl>
     </Wrapper>
   );
 }

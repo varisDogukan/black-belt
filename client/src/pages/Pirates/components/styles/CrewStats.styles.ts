@@ -23,12 +23,14 @@ const Wrapper = styled.section`
     min-width: 100px;
     gap: 2px;
 
-    strong {
+    dd {
       font-size: var(--f-lg);
+      font-weight: bold;
       color: var(--brown);
+      margin: 0;
     }
 
-    span {
+    dt {
       font-size: var(--f-sm);
       color: var(--black);
       text-transform: uppercase;

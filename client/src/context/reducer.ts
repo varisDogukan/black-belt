@@ -146,6 +146,7 @@ const reducer = (state: State, action: Action): State => {
       return {
         ...state,
         pirateLoading: false,
+        singlePirate: null,
         showAlert: true,
         alertType: 'danger',
         alertText: action.payload,

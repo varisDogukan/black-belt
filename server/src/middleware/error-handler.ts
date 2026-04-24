@@ -1,5 +1,5 @@
-import { StatusCodes } from 'http-status-codes';
-import { Request, Response, NextFunction } from 'express';
+import { StatusCodes } from "http-status-codes";
+import { Request, Response, NextFunction } from "express";
 
 interface MyError extends Error {
   statusCode?: number;
@@ -15,14 +15,19 @@ const errorHandlerMiddleware = (
   next: NextFunction,
 ) => {
   const defaultError: MyError = {
-    name: err.name || 'Error',
+    name: err.name || "Error",
     statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
-    message: err.message || 'Something went wrong, try again later',
+    message: err.message || "Something went wrong, try again later",
   };
 
-  if (err.name === 'ValidationError' && err.errors) {
+  if (err.name === "ValidationError" && err.errors) {
     defaultError.statusCode = StatusCodes.BAD_REQUEST;
-    defaultError.message = err.errors.map((item) => item.message).join(',');
+    defaultError.message = err.errors.map((item) => item.message).join(",");
+  }
+
+  if (err.name === "CastError") {
+    defaultError.statusCode = StatusCodes.NOT_FOUND;
+    defaultError.message = `No item found with id : ${(err as any).value}`;
   }
 
   // 11000 = unique

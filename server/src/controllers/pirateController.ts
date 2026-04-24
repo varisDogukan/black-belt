@@ -1,9 +1,9 @@
-import { StatusCodes } from 'http-status-codes';
-import { Request, Response } from 'express';
-import Pirate from '../model/Pirate';
-import { IPirate } from '../interface/IPirate';
-import { BadRequestError, NotFoundError } from '../errors';
-import checkPermissions from '../utils/checkPermissions';
+import { StatusCodes } from "http-status-codes";
+import { Request, Response } from "express";
+import Pirate from "../model/Pirate";
+import { IPirate } from "../interface/IPirate";
+import { BadRequestError, NotFoundError } from "../errors";
+import checkPermissions from "../utils/checkPermissions";
 
 declare global {
   namespace Express {
@@ -28,7 +28,7 @@ const createPirate = async (req: Request, res: Response) => {
   } = req.body;
 
   if (!name || !image || !crewPosition || !chests || !phrase) {
-    throw new BadRequestError('Please provide all values');
+    throw new BadRequestError("Please provide all values");
   }
 
   const createdBy = req.user.userId;
@@ -68,7 +68,7 @@ const deletePirate = async (req: Request, res: Response) => {
 
   await pirate.deleteOne();
 
-  res.status(StatusCodes.OK).json({ msg: 'Success! Pirate removed' });
+  res.status(StatusCodes.OK).json({ msg: "Success! Pirate removed" });
 };
 
 const getSinglePirate = async (req: Request, res: Response) => {
@@ -79,6 +79,8 @@ const getSinglePirate = async (req: Request, res: Response) => {
   if (!singlePirate) {
     throw new NotFoundError(`No pirate with id : ${pirateId}`);
   }
+
+  checkPermissions(req.user, singlePirate.createdBy);
 
   res.status(StatusCodes.OK).json({ singlePirate });
 };
@@ -100,7 +102,7 @@ const updatePirate = async (req: Request, res: Response) => {
     },
   );
 
-  res.status(StatusCodes.OK).json({ msg: 'Success! Updated pirate' });
+  res.status(StatusCodes.OK).json({ msg: "Success! Updated pirate" });
 };
 
 export {

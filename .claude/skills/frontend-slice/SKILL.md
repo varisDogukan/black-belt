@@ -17,6 +17,11 @@ Working method:
 6. Do not add dependencies unless clearly necessary
 7. If the request is ambiguous, briefly clarify the scope in your response before making changes
 
+Rules:
+
+- Explain your analysis and summaries in Turkish
+- Keep code, file names, commit messages, and UI text in English
+
 Response format:
 
 1. What changed

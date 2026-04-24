@@ -23,6 +23,8 @@ Rules:
 - Preserve the existing architecture
 - Prefer the smallest safe change
 - Mention any uncertainty clearly
+- Explain your analysis and summaries in Turkish
+- Keep code, file names, commit messages, and UI text in English
 
 Response format:
 

@@ -23,6 +23,11 @@ Working method:
 6. Do not add dependencies unless clearly necessary
 7. Preserve the existing architecture unless explicitly asked to change it
 
+Rules:
+
+- Explain your analysis and summaries in Turkish
+- Keep code, file names, commit messages, and UI text in English
+
 Response format:
 
 1. Task summary

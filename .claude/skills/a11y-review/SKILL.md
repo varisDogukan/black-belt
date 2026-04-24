@@ -23,6 +23,11 @@ Working method:
    - radio / checkbox semantics
    - color contrast if clearly relevant in code
 
+Rules:
+
+- Explain your analysis and summaries in Turkish
+- Keep code, file names, commit messages, and UI text in English
+
 Response format:
 
 1. Critical findings

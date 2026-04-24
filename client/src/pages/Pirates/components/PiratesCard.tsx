@@ -23,16 +23,16 @@ export default function PiratesCard({ _id, image, name }: PiratesCardProps) {
         <h4>{name}</h4>
 
         {confirming ? (
-          <div className="confirm-container">
+          <div className="confirm-container" role="alert">
             <span>Are you sure?</span>
             <div className="confirm-buttons">
               <Button
-                title="Yes"
+                title={`Yes, delete ${name}`}
                 isNormalButton="true"
                 method={() => deletePirate(_id)}
               />
               <Button
-                title="No"
+                title={`No, keep ${name}`}
                 isNormalButton="true"
                 method={() => setConfirming(false)}
               />

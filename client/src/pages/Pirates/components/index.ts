@@ -3,6 +3,7 @@
 import AddPirateForm from './AddPirateForm';
 import AddPirateLeftForm from './AddPirateLeftForm';
 import AddPirateRightForm from './AddPirateRightForm';
+import CrewStats from './CrewStats';
 import EmptyPirate from './EmptyPirate';
 
-export { AddPirateForm, AddPirateLeftForm, AddPirateRightForm, EmptyPirate };
+export { AddPirateForm, AddPirateLeftForm, AddPirateRightForm, CrewStats, EmptyPirate };

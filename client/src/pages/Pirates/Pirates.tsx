@@ -7,7 +7,7 @@ import { PirateLoader, Title } from 'src/shared';
 import { IPirate } from 'src/context/context.types';
 import PiratesCard from './components/PiratesCard';
 import Wrapper from './styles/Pirates.styles';
-import { EmptyPirate } from './components';
+import { CrewStats, EmptyPirate } from './components';
 
 export default function Pirates() {
   const {
@@ -36,6 +36,8 @@ export default function Pirates() {
   return (
     <Wrapper>
       <Title title="Pirate Crew" url="/pirates/new" buttonTitle="Add Pirate" />
+
+      {!pirateLoading && pirates.length > 0 && <CrewStats />}
 
       {showTag()}
     </Wrapper>

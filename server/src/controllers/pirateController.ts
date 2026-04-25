@@ -88,11 +88,6 @@ const getSinglePirate = async (req: Request, res: Response) => {
 const updatePirate = async (req: Request, res: Response) => {
   const { id: pirateId } = req.params;
 
-  const pirate = await Pirate.findOne({ _id: pirateId });
-
-  // check permission
-  checkPermissions(req.user, pirate?.createdBy);
-
   const { name, image, crewPosition, chests, phrase, pegLeg, eyePatch, hookHand } = req.body;
   const updates: Record<string, unknown> = {};
   if (name !== undefined) updates.name = name;
@@ -107,6 +102,15 @@ const updatePirate = async (req: Request, res: Response) => {
   if (Object.keys(updates).length === 0) {
     throw new BadRequestError("Please provide fields to update");
   }
+
+  const pirate = await Pirate.findOne({ _id: pirateId });
+
+  if (!pirate) {
+    throw new NotFoundError(`No pirate with id : ${pirateId}`);
+  }
+
+  // check permission
+  checkPermissions(req.user, pirate.createdBy);
 
   await Pirate.findOneAndUpdate(
     { _id: pirateId },

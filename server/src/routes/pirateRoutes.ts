@@ -1,4 +1,4 @@
-import express from 'express';
+import express from "express";
 
 import {
   createPirate,
@@ -6,15 +6,15 @@ import {
   getAllPirates,
   getSinglePirate,
   updatePirate,
-} from '../controllers/pirateController';
+} from "../controllers/pirateController";
 
 const router = express.Router();
 
-router.route('/').post(createPirate).get(getAllPirates);
+router.route("/").post(createPirate).get(getAllPirates);
 router
-  .route('/:id')
+  .route("/:id")
   .get(getSinglePirate)
   .delete(deletePirate)
-  .put(updatePirate);
+  .patch(updatePirate);
 
 export default router;

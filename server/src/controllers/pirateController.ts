@@ -93,9 +93,24 @@ const updatePirate = async (req: Request, res: Response) => {
   // check permission
   checkPermissions(req.user, pirate?.createdBy);
 
+  const { name, image, crewPosition, chests, phrase, pegLeg, eyePatch, hookHand } = req.body;
+  const updates: Record<string, unknown> = {};
+  if (name !== undefined) updates.name = name;
+  if (image !== undefined) updates.image = image;
+  if (crewPosition !== undefined) updates.crewPosition = crewPosition;
+  if (chests !== undefined) updates.chests = chests;
+  if (phrase !== undefined) updates.phrase = phrase;
+  if (pegLeg !== undefined) updates.pegLeg = pegLeg;
+  if (eyePatch !== undefined) updates.eyePatch = eyePatch;
+  if (hookHand !== undefined) updates.hookHand = hookHand;
+
+  if (Object.keys(updates).length === 0) {
+    throw new BadRequestError("Please provide fields to update");
+  }
+
   await Pirate.findOneAndUpdate(
     { _id: pirateId },
-    { $set: req.body },
+    { $set: updates },
     {
       new: true,
       runValidators: true,
